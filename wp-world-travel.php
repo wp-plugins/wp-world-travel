@@ -2,8 +2,8 @@
 /*
 Plugin Name: WP World Travel
 Plugin URI: http://globetrooper.com/general/wp-world-travel
-Version: v1.00
-Author: <a href="http://hustleandfocus.com/">Todd Sullivan</a> of <a href="http://globetrooper.com">Globetrooper</a>
+Version: 1.0.0
+Author: <a href="http://globetrooper.com/">Todd Sullivan</a> of <a href="http://globetrooper.com">Globetrooper</a>
 Description: Show your current location and travel schedule (or travel itinerary) in the sidebar of your travel blog. Readers can also propose meetups at each of your future destinations.
 */
 
