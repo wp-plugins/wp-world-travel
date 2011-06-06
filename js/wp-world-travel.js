@@ -1,9 +1,9 @@
 function wpwt_schedule_toggle() {
 
-	var schedule = $( '#wpwt-schedule' );
-	var text = $( '#wpwt-schedule-link' );
-	var meetup = $( '#wpwt-meetup' );
-	var success = $( '#wpwt-meetup-success' );
+	var schedule = jQuery( '#wpwt-schedule' );
+	var text = jQuery( '#wpwt-schedule-link' );
+	var meetup = jQuery( '#wpwt-meetup' );
+	var success = jQuery( '#wpwt-meetup-success' );
 	
 	if( schedule.css( 'display' ) == 'block' ) {
 		schedule.slideUp( 'fast' );
@@ -20,14 +20,14 @@ function wpwt_schedule_toggle() {
 
 function wpwt_meetup_toggle( index ) {
 
-	var schedule = $( '#wpwt-schedule' );
-	var text = $( '#wpwt-schedule-link' );
-	var meetup = $( '#wpwt-meetup' );
-	var location = $( '#wpwt-meetup-location' );
-	var name = $( '#wpwt-meetup-name' );
-	var email = $( '#wpwt-meetup-email' );
-	var message = $( '#wpwt-meetup-message' );
-	var success = $( '#wpwt-meetup-success' );
+	var schedule = jQuery( '#wpwt-schedule' );
+	var text = jQuery( '#wpwt-schedule-link' );
+	var meetup = jQuery( '#wpwt-meetup' );
+	var location = jQuery( '#wpwt-meetup-location' );
+	var name = jQuery( '#wpwt-meetup-name' );
+	var email = jQuery( '#wpwt-meetup-email' );
+	var message = jQuery( '#wpwt-meetup-message' );
+	var success = jQuery( '#wpwt-meetup-success' );
 	
 	if( meetup.css( 'display' ) == 'none' ) {
   	meetup.slideDown( 'fast' );
@@ -48,10 +48,10 @@ function wpwt_meetup_toggle( index ) {
 
 function wpwt_meetup_success() {
 
-	var meetup = $( '#wpwt-meetup' );
-	var success = $( '#wpwt-meetup-success' );
-	var button = $( '#wpwt-meetup-submit' );
-	var sending = $( '#wpwt-meetup-sending' );	
+	var meetup = jQuery( '#wpwt-meetup' );
+	var success = jQuery( '#wpwt-meetup-success' );
+	var button = jQuery( '#wpwt-meetup-submit' );
+	var sending = jQuery( '#wpwt-meetup-sending' );	
 	
   meetup.hide();
   success.show();
@@ -65,15 +65,15 @@ function wpwt_meetup_success() {
 
 function wpwt_meetup_send( admin_ajax ) {
 
-	var name = $( '#wpwt-meetup-name' );
-	var email = $( '#wpwt-meetup-email' );
-	var message = $( '#wpwt-meetup-message' );
-	var location = $( '#wpwt-meetup-location' );
+	var name = jQuery( '#wpwt-meetup-name' );
+	var email = jQuery( '#wpwt-meetup-email' );
+	var message = jQuery( '#wpwt-meetup-message' );
+	var location = jQuery( '#wpwt-meetup-location' );
 	
 	if( name.val().length > 0 && wpwt_is_email_valid( email.val() ) && message.val().length > 0 ) {
 	
-		var button = $( '#wpwt-meetup-submit' );
-		var sending = $( '#wpwt-meetup-sending' );	
+		var button = jQuery( '#wpwt-meetup-submit' );
+		var sending = jQuery( '#wpwt-meetup-sending' );	
 		
 		button.attr( 'disabled', 'disabled' );
 		sending.show();
@@ -118,7 +118,7 @@ function wpwt_meetup_send( admin_ajax ) {
 
 function wpwt_meetup_close() {
 
-	var meetup = $( '#wpwt-meetup' );
+	var meetup = jQuery( '#wpwt-meetup' );
 	
 	meetup.slideUp( 'fast' );
 
@@ -126,7 +126,7 @@ function wpwt_meetup_close() {
 
 function wpwt_is_email_valid( emailAddress ) {
 
-	var pattern = new RegExp( /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i );
+	var pattern = new RegExp( /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)jQuery)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?jQuery)/i );
 	
 	return( pattern.test( emailAddress ) );
 	
