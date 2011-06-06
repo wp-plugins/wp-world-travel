@@ -49,7 +49,9 @@ receiving the emails.
 
 == Screenshots ==
 
-1. Sidebar widget with Schedule opened. This in the the Globetrooper website. It will look different on your website.
+1. Sidebar widget with Schedule opened.
+2. Admin for Travel Schedule
+3. Admin for proposed Meetups
 
 
 == Changelog ==
