@@ -10,9 +10,10 @@ Show your current location and travel schedule in the sidebar of your travel blo
 
 == Description ==
 
-Plugin Home Page: http://globetrooper.com/notes/wordpress-world-travel-plugin/
+Home Page: http://globetrooper.com/notes/wordpress-world-travel-plugin/
 
 With WP World Travel, you can do the following:
+
 * Display your Current Location to readers
 * Display your Travel Schedule to readers
 * Allow readers to propose Meetups in each location
@@ -48,10 +49,6 @@ receiving the emails.
 
 == Screenshots ==
 
-1. This is the widget displayed on the Globetrooper website. The widget will take the styling of your existing website.
-2. This is the settings admin panel.
-3. This is the Schedule Management admin panel.
-2. This is the Meetups admin panel.
 
 == Changelog ==
 
@@ -62,11 +59,4 @@ receiving the emails.
 
 = 1.0 =
 * This is the first release version.
-
-
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
 
