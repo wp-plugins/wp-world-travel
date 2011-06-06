@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: todsul
 Donate link: http://globetrooper.com/
-Tags: current location, world travel, travel blog, travel schedule, travel itinerary, meetup, travel partners, backpacking
+Tags: current location, travel, travel blog, travel schedule, travel itinerary, meetup, travel partners, backpacking
 Requires at least: 2.0.2
 Tested up to: 3.1.3
 Stable tag: 1.0
@@ -48,6 +48,8 @@ receiving the emails.
 
 
 == Screenshots ==
+
+1. Sidebar widget with Schedule opened. This in the the Globetrooper website. It will look different on your website.
 
 
 == Changelog ==
