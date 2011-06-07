@@ -7,13 +7,13 @@
 	</ul>
 	<div id="wpwt-schedule">
 		<div id="wpwt-meetup">
-			Meetup in&nbsp;
-			<select id="wpwt-meetup-location">
-				<?php foreach( $locations as $location ) { ?>
-					<option value="<?php echo $location; ?>"><?php echo $location; ?></option>
-				<?php } ?>
-			</select>
-		  <form method="post"	action="#">
+			<form method="post"	action="#">
+				<label for="wpwt-meetup-location">Meetup in</label>
+				<select id="wpwt-meetup-location">
+					<?php foreach( $locations as $location ) { ?>
+						<option value="<?php echo $location; ?>"><?php echo $location; ?></option>
+					<?php } ?>
+				</select>
 		    <label for="wpwt-meetup-name">Name</label>
 		    <input class="wpwt-meetup-text" type="text" id="wpwt-meetup-name" />
 		    <label for="wpwt-meetup-email">Email</label>

@@ -70,7 +70,30 @@ function wpwt_meetup_send( admin_ajax ) {
 	var message = jQuery( '#wpwt-meetup-message' );
 	var location = jQuery( '#wpwt-meetup-location' );
 	
-	if( name.val().length > 0 && wpwt_is_email_valid( email.val() ) && message.val().length > 0 ) {
+	if( name.val().length == 0 || message.val().length == 0 || ! wpwt_is_email_valid( email.val() ) ) {
+	
+		if( name.val().length == 0 ) {			
+			name.addClass( 'wpwt-form-error' );
+		}
+		else {
+			name.removeClass( 'wpwt-form-error' );
+		}
+		
+		if( wpwt_is_email_valid( email.val() ) ) {
+			email.removeClass( 'wpwt-form-error' );
+		}
+		else {
+			email.addClass( 'wpwt-form-error' );
+		}
+				
+		if( message.val().length == 0 ) {
+			message.addClass( 'wpwt-form-error' );
+		}
+		else {	
+			message.removeClass( 'wpwt-form-error' );
+		}	
+	
+	} else {	
 	
 		var button = jQuery( '#wpwt-meetup-submit' );
 		var sending = jQuery( '#wpwt-meetup-sending' );	
@@ -87,30 +110,7 @@ function wpwt_meetup_send( admin_ajax ) {
 			'wpwt_location': location.val(),		 
 		 	'success': function() { wpwt_meetup_success(); }
 		 
-		 } );		
-	
-	} else {	
-	
-		if( name.val().length < 1 ) {
-			name.addClass( 'wpwt-form-error' );
-		}
-		else {
-			name.removeClass( 'wpwt-form-error' );
-		}
-		
-		if( ! wpwt_is_email_valid( email.val() ) ) {
-			email.addClass( 'wpwt-form-error' );
-		}
-		else {
-			email.removeClass( 'wpwt-form-error' );
-		}
-				
-		if( message.val().length < 5 ) {
-			message.addClass( 'wpwt-form-error' );
-		}
-		else {
-			message.removeClass( 'wpwt-form-error' );
-		}		
+		 } );	
 	
 	}
 
@@ -126,7 +126,7 @@ function wpwt_meetup_close() {
 
 function wpwt_is_email_valid( emailAddress ) {
 
-	var pattern = new RegExp( /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)jQuery)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?jQuery)/i );
+	var pattern = new RegExp( /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i );
 	
 	return( pattern.test( emailAddress ) );
 	

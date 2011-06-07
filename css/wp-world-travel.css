@@ -2,6 +2,7 @@
 	http://gt.localhost:8888/notes/wp-content/plugins/wp-world-travel/css/wp-world-travel.css
 	http://gt.localhost:8888/notes/wp-content/plugins/wp-world-travel/css/wp-world-travel.css?ver=3.1.1
 	http://globetrooper.com/notes/wp-content/plugins/wp-world-travel/css/wp-world-travel.css?ver=3.1.3
+	http://gt.localhost:8888/notes/wp-content/plugins/wp-world-travel/css/wp-world-travel.css?ver=3.1.3
 */
 
 /* @group General */
@@ -67,7 +68,9 @@ padding:0 12px 12px;
 -moz-border-radius:12px;
 border-radius:12px;
 }
-#wpwt-meetup-location,
+#wpwt-meetup-location{
+width:100%;
+}
 #wpwt-meetup-success div{
 margin:12px 0 0;
 }
