@@ -70,7 +70,7 @@ function wpwt_meetup_send( admin_ajax ) {
 	var message = jQuery( '#wpwt-meetup-message' );
 	var location = jQuery( '#wpwt-meetup-location' );
 	
-	if( name.val().length > 0 && wpwt_is_email_valid( email.val() ) && message.val().length > 0 ) {
+	if( ! trim( name.val().length ) && ! trim( message.val().length ) && wpwt_is_email_valid( email.val() ) ) {
 	
 		var button = jQuery( '#wpwt-meetup-submit' );
 		var sending = jQuery( '#wpwt-meetup-sending' );	
