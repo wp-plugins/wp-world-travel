@@ -1,4 +1,4 @@
-function wpwt_schedule_toggle() {
+function wpwt_schedule_toggle( txt_show, txt_hide ) {
 
 	var schedule = jQuery( '#wpwt-schedule' );
 	var text = jQuery( '#wpwt-schedule-link' );
@@ -7,12 +7,12 @@ function wpwt_schedule_toggle() {
 	
 	if( schedule.css( 'display' ) == 'block' ) {
 		schedule.slideUp( 'fast' );
-		text.text( 'View My Travel Schedule' );
+		text.text( txt_show );
   }
 	else {
 		meetup.hide();
 		success.hide();
-		text.text( 'Hide My Travel Schedule' );
+		text.text( txt_hide );
 		schedule.slideDown( 'fast' );
 	}
 	

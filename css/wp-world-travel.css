@@ -26,9 +26,6 @@ line-height:1.75;
 
 /* @group Schedule */
 
-#wpwt-schedule{
-display:none;
-}
 .wpwt-schedule-title span{
 font-style:italic;
 }

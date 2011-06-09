@@ -8,14 +8,31 @@
 			<label for="wpwt_settings[wpwt-introduction]" style="display:inline-block;width:10em">Introduction</label>
 			<input size="30" maxlength="64" type="text" name="wpwt_settings[wpwt-introduction]" value="<?php echo $options['wpwt_introduction']; ?>" />
 		</p>
+		<h3>Schedule Settings</h3>
+		<p>
+			<label style="display:inline-block;width:10em">Hide Schedule</label>
+			<input type="radio" name="wpwt_settings[wpwt-hide-schedule]" value="1" <?php if ( $options['wpwt_hide_schedule'] ) { echo 'checked="checked"'; } ?> />
+			<label for="wpwt_settings[wpwt-hide-schedule]" style="display:inline-block;width:6em">Yes</label>
+			<input type="radio" name="wpwt_settings[wpwt-hide-schedule]" value="0" <?php if ( ! $options['wpwt_hide_schedule'] ) { echo 'checked="checked"'; } ?> />
+			<label for="wpwt_settings[wpwt-hide-schedule]" style="display:inline-block;width:6em">No</label>	
+		</p>
+		<p>
+			<label style="display:inline-block;width:10em">Schedule Link Text</label>
+			<input size="30" maxlength="64" type="text" name="wpwt_settings[wpwt-show-schedule-text]" value="<?php echo $options['wpwt_show_schedule_text']; ?>" />
+			<input size="30" maxlength="64" type="text" name="wpwt_settings[wpwt-hide-schedule-text]" value="<?php echo $options['wpwt_hide_schedule_text']; ?>" />
+		</p>		
 		<h3>Meetup Settings</h3>
 		<p>
 			<label style="display:inline-block;width:10em">Email Alerts</label>
 			<input type="radio" name="wpwt_settings[wpwt-send-email]" value="1" <?php if ( $options['wpwt_send_email'] ) { echo 'checked="checked"'; } ?> />
-			<label for="wpwt_settings[wpwt-send-emails]" style="display:inline-block;width:6em">Enabled</label>
+			<label for="wpwt_settings[wpwt-send-email]" style="display:inline-block;width:6em">Yes</label>
 			<input type="radio" name="wpwt_settings[wpwt-send-email]" value="0" <?php if ( ! $options['wpwt_send_email'] ) { echo 'checked="checked"'; } ?> />
-			<label for="wpwt_settings[wpwt-send-emails]" style="display:inline-block;width:6em">Disabled</label>	
+			<label for="wpwt_settings[wpwt-send-email]" style="display:inline-block;width:6em">No</label>	
 		</p>
+		<p>
+			<label style="display:inline-block;width:10em">Meetup Link Text</label>
+			<input size="30" maxlength="64" type="text" name="wpwt_settings[wpwt-lets-meetup-text]" value="<?php echo $options['wpwt_lets_meetup_text']; ?>" />
+		</p>		
 		<p class="submit">
 			<input type="submit" class="button-primary" value="Save Settings" />
 		</p>					

@@ -44,14 +44,18 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			$options_settings = get_option( 'wpwt_settings' );
 		
 			$options_settings['wpwt_introduction'] = 'I\'m currently in';
+			$options_settings['wpwt_show_schedule_text'] = 'View My Travel Itinerary';
+			$options_settings['wpwt_hide_schedule_text'] = 'Hide My Travel Itinerary';
+			$options_settings['wpwt_lets_meetup_text'] = 'Let\'s Meetup Here';
+			$options_settings['wpwt_hide_schedule'] = true;
 			$options_settings['wpwt_send_email'] = true;
 			$options_settings['wpwt_meetups_new'] = false;
 								
-			update_option( 'wpwt_settings', $options_settings );
+			update_option( 'wpwt_settings', $options_settings );			
 			
-			$options_schedule = get_option( 'wpwt_schedule' );
+			$options_schedule = get_option( 'wpwt_schedule', false );
 			
-			if( count( $options_schedule ) < 1 ) {
+			if( empty( $options_schedule ) ) {
 		
 				$new_leg = array();
 				$new_leg['wpwt_from_date'] = mktime( 12, 0, 0, 1, 1, date( 'Y' ) );
@@ -66,9 +70,9 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			
 			}
 			
-			$options_meetup = get_option( 'wpwt_meetups' );
+			$options_meetup = get_option( 'wpwt_meetups', false );
 			
-			if( count( $options_meetup ) < 1 ) {
+			if( empty( $options_meetup ) ) {
 			
 				$today = date( 'U' );
 				
@@ -83,13 +87,13 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 				
 				update_option( 'wpwt_meetups', $options_meetup );
 			
-			}			
+			}					
 		
 		}
 		
 	  function form( $instance ) {
 	  
-			$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
+			$instance = wp_parse_args( (array) $instance, array( 'title' => 'Current Location' ) );
 			$title = strip_tags( $instance['title'] );
 			
 			require_once 'inc/wpwt-widget-admin.php';
@@ -99,7 +103,7 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 	  function update( $new_instance, $old_instance ) {
 
 			$instance = $old_instance;
-			$instance['title'] = strip_tags( $new_instance['title'] );
+			$instance['title'] = $new_instance['title'] != '' ? strip_tags( $new_instance['title'] ) : 'Current Location';
 			
 			return $instance;
 			
@@ -123,22 +127,26 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			
 			array_multisort( $options, SORT_ASC );
 			
-			foreach( $options as $leg ) {
-				
-				if ( $leg['wpwt_to_date'] > date( 'U' ) ) { 
-				
-					$location = $leg['wpwt_place'] . ', ' . $leg['wpwt_country_name'];
+			if( ! empty( $options ) ) {
+			
+				foreach( $options as $leg ) {
 					
-					if ( $leg['wpwt_from_date'] < date( 'U' ) ) { 
-						$current_location = $location;
+					if ( $leg['wpwt_to_date'] > date( 'U' ) ) { 
+					
+						$location = $leg['wpwt_place'] . ', ' . $leg['wpwt_country_name'];
+						
+						if ( $leg['wpwt_from_date'] < date( 'U' ) ) { 
+							$current_location = $location;
+						}
+						
+						$legs[] = $leg;
+						$locations[] = $location;
+						
 					}
 					
-					$legs[] = $leg;
-					$locations[] = $location;
-					
 				}
-				
-			}	  
+							
+			} 
 			
 	  	require_once 'inc/wpwt-widget.php';
 	  	
@@ -226,8 +234,12 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			if( isset( $_POST['wpwt-admin-submit'] ) ) {
 			
 				$options = get_option( 'wpwt_settings' );
-				$options['wpwt_introduction'] = $input['wpwt-introduction'];
-				$options['wpwt_send_email'] = (bool)$input['wpwt-send-email'];
+				$options['wpwt_introduction'] = trim( $input['wpwt-introduction'] );
+				$options['wpwt_show_schedule_text'] = $input['wpwt-show-schedule-text'];
+				$options['wpwt_hide_schedule_text'] = $input['wpwt-hide-schedule-text'];
+				$options['wpwt_lets_meetup_text'] = $input['wpwt-lets-meetup-text'];
+				$options['wpwt_hide_schedule'] = ( bool )$input['wpwt-hide-schedule'];
+				$options['wpwt_send_email'] = ( bool )$input['wpwt-send-email'];
 				
 				return $options;
 				
