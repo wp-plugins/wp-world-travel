@@ -37,6 +37,12 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			$widget_ops = array( 'classname' => 'wp-world-travel', 'description' => 'Show your current location and travel itinerary in the sidebar. Readers can also propose meetups at each future destination.' );
 			$this->WP_Widget( 'WP_World_Travel', '&nbsp;World Travel', $widget_ops );
 			
+			wpwt_setup_defaults();
+					
+		}
+		
+		function wpwt_setup_defaults() {
+		
 			$options_settings = get_option( 'wpwt_settings' );
 			
 			if( $options_settings['wpwt_introduction'] == '' )
@@ -61,22 +67,12 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 				$options_settings['wpwt_meetups_new'] = false;
 				
 			update_option( 'wpwt_settings', $options_settings );			
-					
+		
 		}
 		
 		function wpwt_activation() {
 		
-			$options_settings = get_option( 'wpwt_settings' );
-		
-			$options_settings['wpwt_introduction'] = 'I\'m currently in';
-			$options_settings['wpwt_show_schedule_text'] = 'View My Travel Itinerary';
-			$options_settings['wpwt_hide_schedule_text'] = 'Hide My Travel Itinerary';
-			$options_settings['wpwt_lets_meetup_text'] = 'Let\'s Meetup Here';
-			$options_settings['wpwt_hide_schedule'] = true;
-			$options_settings['wpwt_send_email'] = true;
-			$options_settings['wpwt_meetups_new'] = false;
-								
-			update_option( 'wpwt_settings', $options_settings );			
+			wpwt_setup_defaults();		
 			
 			$options_schedule = get_option( 'wpwt_schedule', false );
 			
