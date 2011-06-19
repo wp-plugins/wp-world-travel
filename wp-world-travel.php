@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP World Travel
 Plugin URI: http://globetrooper.com/notes/wordpress-world-travel-plugin/
-Version: 1.0.5
+Version: 1.0.6
 Author: <a href="http://globetrooper.com/">Todd Sullivan</a> of <a href="http://globetrooper.com">Globetrooper</a>
 Description: Show your current location and travel schedule (or travel itinerary) in the sidebar of your travel blog. Readers can also propose meetups at each of your future destinations.
 */
@@ -23,6 +23,7 @@ define( 'GT_CONTACT', 'http://globetrooper.com/general/contact/' );
 define( 'GT_WPWT', 'http://globetrooper.com/notes/wordpress-world-travel-plugin/' );
 
 register_activation_hook( __FILE__,  array( 'WP_World_Travel', 'wpwt_activation' ) );
+register_deactivation_hook( __FILE__,  array( 'WP_World_Travel', 'wpwt_deactivation' ) );
 
 if ( ! class_exists( 'WP_World_Travel' ) ) {
 
@@ -46,6 +47,12 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			WP_World_Travel::wpwt_setup_defaults();						
 		
 		}
+		
+		function wpwt_deactivation() {
+		
+			unregister_widget( 'WP_World_Travel' );					
+		
+		}		
 		
 		function wpwt_setup_defaults() {
 		
@@ -99,7 +106,7 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 				
 				update_option( 'wpwt_meetups', $options_meetup );
 			
-			}					
+			}
 		
 		}		
 		
@@ -108,7 +115,15 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			$instance = wp_parse_args( (array) $instance, array( 'title' => 'Current Location' ) );
 			$title = strip_tags( $instance['title'] );
 			
-			require_once 'inc/wpwt-widget-admin.php';
+			?>
+			
+				<p>
+					<label for="<?php echo $this->get_field_id( 'title' ); ?>">
+						Title: <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo attribute_escape( $title ); ?>" />
+					</label>
+				</p>			
+			
+			<?php
 			
 	  }
 	  
