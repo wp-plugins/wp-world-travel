@@ -35,7 +35,13 @@
 				<img src="<?php echo WPWT_DIR . 'img/' . strtolower( $value['wpwt_country_code'] ) ?>.png" alt="<?php echo $value['wpwt_country_name'] ?>" /><a href="http://globetrooper.com/<?php echo strtolower( str_replace( ' ', '-', $value['wpwt_country_name'] ) ); ?>"><?php echo $value['wpwt_country_name'] ?></a>
 			</div>
 			<div class="wpwt-title">
-				<?php echo $value['wpwt_place'] . ', ' . $value['wpwt_country_name']; ?>
+				<?php 
+					if ( empty( $value['wpwt_place'] ) ) {
+						echo $value['wpwt_country_name'];
+					} else {
+						echo $value['wpwt_place'] . ', ' . $value['wpwt_country_name'];
+					} 
+				?>
 			</div>
 			<ul>
 				<li><?php echo __( date( 'd M Y', $value['wpwt_from_date'] ) ) ?> - <?php echo __( date( 'd M Y', $value['wpwt_to_date'] ) ) ?></li>
