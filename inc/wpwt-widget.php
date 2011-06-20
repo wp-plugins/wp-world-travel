@@ -31,8 +31,9 @@
 		</div>
 		<?php $i = 0; ?>
 		<?php foreach( $legs as $key=>$value ) { ?>			
-			<div class="wpwt-flag">
+			<div class="wpwt-flag">				
 				<a style="background:#fff url('<?php echo WPWT_DIR . 'img/' . strtolower( $value['wpwt_country_code'] ) ?>.png')" href="http://globetrooper.com/<?php echo strtolower( str_replace( ' ', '-', $value['wpwt_country_name'] ) ); ?>">
+					<img src="<?php echo WPWT_DIR . 'img/' . strtolower( $value['wpwt_country_code'] ) ?>.png" alt="<?php echo $value['wpwt_country_name'] ?>" />	
 					<?php echo $value['wpwt_country_name'] ?>
 				</a>
 			</div>
