@@ -41,6 +41,12 @@ height:11px;
 text-indent:-9999px;
 width:16px;
 }
+.wpwt-flag img{
+display:block;
+height:11px;
+position:absolute;
+width:16px;
+}
 
 /* @end */
 
