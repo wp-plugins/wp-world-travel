@@ -2,9 +2,9 @@
 Contributors: todsul
 Donate link: http://globetrooper.com/
 Tags: current location, travel, travel blog, travel schedule, travel itinerary, meetup, travel partners, backpacking
-Requires at least: 2.0.2
-Tested up to: 3.1.3
-Stable tag: 1.0.6
+Requires at least: 2.8
+Tested up to: 3.2
+Stable tag: 1.0.7
 
 Show your current location and travel schedule in the sidebar of your travel blog. Readers can propose meetups at each of your future destinations.
 
