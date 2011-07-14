@@ -47,7 +47,14 @@
 				?>
 			</div>
 			<ul>
-				<li><?php echo __( date( 'd M Y', $value['wpwt_from_date'] ) ) ?> - <?php echo __( date( 'd M Y', $value['wpwt_to_date'] ) ) ?></li>
+				<li>
+					<?php
+						setlocale(LC_TIME, 'fr_Fr'); 
+						echo strftime( '%e %b %G', $value['wpwt_from_date'] ); 
+					?>
+					&nbsp;-&nbsp;
+					<?php echo strftime( '%e %b %G', $value['wpwt_to_date'] ); ?>
+				</li>
 				<li><a id="wpwt-meet-link" href="javascript:wpwt_meetup_toggle( '<?php echo $i ?>' )"><?php echo $settings['wpwt_lets_meetup_text']; ?></a></li>
 			</ul>
 			<?php $i++; ?>

@@ -88,8 +88,15 @@ $countries = array( 'AF'=>'Afghanistan', 'AX'=>'Aland Islands', 'AL'=>'Albania',
 				<?php array_multisort( $options, SORT_DESC ); ?>
 				<?php foreach( $options as $key=>$value ) { ?>								
 					<tr>
-						<td><?php echo date( 'd-M-Y', $value['wpwt_from_date'] ) ?></td>
-						<td><?php echo date( 'd-M-Y', $value['wpwt_to_date'] ) ?></td>
+						<td>
+							<?php 
+								setlocale(LC_TIME, 'fr_Fr'); 
+								echo strftime( '%e %b %G', $value['wpwt_from_date'] );
+							?>						
+						</td>
+						<td>
+							<?php echo strftime( '%e %b %G', $value['wpwt_to_date'] ); ?>						
+						</td>
 						<td><?php echo $value['wpwt_place']; ?></td>
 						<td><?php echo $value['wpwt_country_name']; ?></td>
 						<td>
