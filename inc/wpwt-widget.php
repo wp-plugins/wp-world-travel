@@ -49,7 +49,7 @@
 			<ul>
 				<li>
 					<?php
-						setlocale(LC_TIME, 'fr_Fr'); 
+						setlocale(LC_TIME, get_locale()); 
 						echo strftime( '%e %b %G', $value['wpwt_from_date'] ); 
 					?>
 					&nbsp;-&nbsp;
