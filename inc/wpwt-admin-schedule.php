@@ -89,13 +89,10 @@ $countries = array( 'AF'=>'Afghanistan', 'AX'=>'Aland Islands', 'AL'=>'Albania',
 				<?php foreach( $options as $key=>$value ) { ?>								
 					<tr>
 						<td>
-							<?php 
-								setlocale(LC_TIME, get_locale()); 
-								echo strftime( '%e %b %G', $value['wpwt_from_date'] );
-							?>						
+							<?php echo date_i18n( 'j M Y', $value['wpwt_from_date'] ); ?>				
 						</td>
 						<td>
-							<?php echo strftime( '%e %b %G', $value['wpwt_to_date'] ); ?>						
+							<?php echo date_i18n( 'j M Y', $value['wpwt_to_date'] ); ?>				
 						</td>
 						<td><?php echo $value['wpwt_place']; ?></td>
 						<td><?php echo $value['wpwt_country_name']; ?></td>

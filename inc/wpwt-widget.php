@@ -33,7 +33,7 @@
 		<?php foreach( $legs as $key=>$value ) { ?>			
 			<div class="wpwt-flag">				
 				<a style="background:#fff url('<?php echo WPWT_DIR . 'img/' . strtolower( $value['wpwt_country_code'] ) ?>.png')" href="http://globetrooper.com/<?php echo strtolower( str_replace( ' ', '-', $value['wpwt_country_name'] ) ); ?>">
-					<img src="<?php echo WPWT_DIR . 'img/' . strtolower( $value['wpwt_country_code'] ) ?>.png" alt="<?php echo $value['wpwt_country_name'] ?>" />	
+					<img src="<?php echo WPWT_DIR . 'img/' . strtolower( $value['wpwt_country_code'] ) ?>.png" alt="What To Do In <?php echo $value['wpwt_country_name'] ?>" />	
 					<?php echo $value['wpwt_country_name'] ?>
 				</a>
 			</div>
@@ -48,12 +48,9 @@
 			</div>
 			<ul>
 				<li>
-					<?php
-						setlocale(LC_TIME, get_locale()); 
-						echo strftime( '%e %b %G', $value['wpwt_from_date'] ); 
-					?>
+					<?php echo date_i18n( 'j M Y', $value['wpwt_from_date'] ); ?>
 					&nbsp;-&nbsp;
-					<?php echo strftime( '%e %b %G', $value['wpwt_to_date'] ); ?>
+					<?php echo date_i18n( 'j M Y', $value['wpwt_to_date'] ); ?>
 				</li>
 				<li><a id="wpwt-meet-link" href="javascript:wpwt_meetup_toggle( '<?php echo $i ?>' )"><?php echo $settings['wpwt_lets_meetup_text']; ?></a></li>
 			</ul>
