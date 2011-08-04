@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP World Travel
 Plugin URI: http://globetrooper.com/notes/wordpress-world-travel-plugin/
-Version: 1.1.0
+Version: 1.1.1
 Author: <a href="http://globetrooper.com/">Todd Sullivan</a> of <a href="http://globetrooper.com">Globetrooper</a>
 Description: Show your current location and travel schedule (or travel itinerary) in the sidebar of your travel blog. Readers can also propose meetups at each of your future destinations.
 */
@@ -67,6 +67,8 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 				$options_settings['wpwt_lets_meetup_text'] = 'Let\'s Meetup Here';
 			if( ! is_bool( $options_settings['wpwt_hide_schedule'] ) )	
 				$options_settings['wpwt_hide_schedule'] = true;
+			if( ! is_bool( $options_settings['wpwt_meetups_enabled'] ) )	
+				$options_settings['wpwt_meetups_enabled'] = true;
 			if( ! is_bool( $options_settings['wpwt_send_email'] ) )	
 				$options_settings['wpwt_send_email'] = true;
 			if( ! is_bool( $options_settings['wpwt_meetups_new'] ) )	
@@ -274,6 +276,7 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 				$options['wpwt_hide_schedule_text'] = $input['wpwt-hide-schedule-text'];
 				$options['wpwt_lets_meetup_text'] = $input['wpwt-lets-meetup-text'];
 				$options['wpwt_hide_schedule'] = (bool)$input['wpwt-hide-schedule'];
+				$options['wpwt_meetups_enabled'] = (bool)$input['wpwt-meetups-enabled'];
 				$options['wpwt_send_email'] = (bool)$input['wpwt-send-email'];
 				
 				return $options;

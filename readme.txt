@@ -4,7 +4,7 @@ Donate link: http://globetrooper.com/
 Tags: current location, travel, travel blog, travel schedule, travel itinerary, meetup, travel partners, backpacking
 Requires at least: 2.8
 Tested up to: 3.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 Show your current location and travel schedule in the sidebar of your travel blog. Readers can propose meetups at each of your future destinations.
 
@@ -56,6 +56,10 @@ receiving the emails.
 
 == Changelog ==
 
+= 1.1.1 =
+* Now able to hide the Meetup link
+* Non-English dates are working properly
+
 = 1.0.8 =
 * Fixed month name to match foreign locale
 
@@ -88,6 +92,11 @@ receiving the emails.
 * This is the first release version.
 
 == Upgrade Notice ==
+
+
+= 1.1.1 =
+* Now able to hide the Meetup link
+* Non-English dates are working properly
 
 = 1.0.8 =
 * Fixed month name to match foreign locale

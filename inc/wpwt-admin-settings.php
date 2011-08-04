@@ -23,6 +23,13 @@
 		</p>		
 		<h3>Meetup Settings</h3>
 		<p>
+			<label style="display:inline-block;width:10em">Enabled</label>
+			<input type="radio" name="wpwt_settings[wpwt-meetups-enabled]" value="1" <?php if ( $options['wpwt_meetups_enabled'] ) { echo 'checked="checked"'; } ?> />
+			<label for="wpwt_settings[wpwt-meetups-enabled]" style="display:inline-block;width:6em">Yes</label>
+			<input type="radio" name="wpwt_settings[wpwt-meetups-enabled]" value="0" <?php if ( ! $options['wpwt_meetups_enabled'] ) { echo 'checked="checked"'; } ?> />
+			<label for="wpwt_settings[wpwt-meetups-enabled]" style="display:inline-block;width:6em">No</label>	
+		</p>		
+		<p>
 			<label style="display:inline-block;width:10em">Email Alerts</label>
 			<input type="radio" name="wpwt_settings[wpwt-send-email]" value="1" <?php if ( $options['wpwt_send_email'] ) { echo 'checked="checked"'; } ?> />
 			<label for="wpwt_settings[wpwt-send-email]" style="display:inline-block;width:6em">Yes</label>

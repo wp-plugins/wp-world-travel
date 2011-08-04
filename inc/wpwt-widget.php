@@ -52,7 +52,9 @@
 					&nbsp;-&nbsp;
 					<?php echo date_i18n( 'j M Y', $value['wpwt_to_date'] ); ?>
 				</li>
-				<li><a id="wpwt-meet-link" href="javascript:wpwt_meetup_toggle( '<?php echo $i ?>' )"><?php echo $settings['wpwt_lets_meetup_text']; ?></a></li>
+				<?php if ($settings['wpwt_meetups_enabled']): ?>
+					<li><a id="wpwt-meet-link" href="javascript:wpwt_meetup_toggle( '<?php echo $i ?>' )"><?php echo $settings['wpwt_lets_meetup_text']; ?></a></li>
+				<?php endif; ?>
 			</ul>
 			<?php $i++; ?>
 		<?php } ?>
