@@ -17,7 +17,7 @@
 			<label for="wpwt_settings[wpwt-hide-schedule]" style="display:inline-block;width:6em">No</label>	
 		</p>
 		<p>
-			<label style="display:inline-block;width:10em">Hide Previous <?php echo $options['wpwt_hide_previous'] ?></label>
+			<label style="display:inline-block;width:10em">Hide Previous</label>
 			<input type="radio" name="wpwt_settings[wpwt-hide-previous]" value="1" <?php if ( $options['wpwt_hide_previous'] ) { echo 'checked="checked"'; } ?> />
 			<label for="wpwt_settings[wpwt-hide-previous]" style="display:inline-block;width:6em">Yes</label>
 			<input type="radio" name="wpwt_settings[wpwt-hide-previous]" value="0" <?php if ( ! $options['wpwt_hide_previous'] ) { echo 'checked="checked"'; } ?> />
