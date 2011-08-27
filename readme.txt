@@ -3,8 +3,8 @@ Contributors: todsul
 Donate link: http://globetrooper.com/
 Tags: current location, travel, travel blog, travel schedule, travel itinerary, meetup, travel partners, backpacking
 Requires at least: 2.8
-Tested up to: 3.2
-Stable tag: 1.1.1
+Tested up to: 3.3
+Stable tag: 1.1.2
 
 Show your current location and travel schedule in the sidebar of your travel blog. Readers can propose meetups at each of your future destinations.
 
@@ -57,6 +57,10 @@ receiving the emails.
 == Changelog ==
 
 = 1.1.1 =
+* Now able to show previous places visited
+* Now the schedule link is hidden in expanded view
+
+= 1.1.1 =
 * Now able to hide the Meetup link
 * Non-English dates are working properly
 
@@ -93,38 +97,6 @@ receiving the emails.
 
 == Upgrade Notice ==
 
-
-= 1.1.1 =
-* Now able to hide the Meetup link
-* Non-English dates are working properly
-
-= 1.0.8 =
-* Fixed month name to match foreign locale
-
-= 1.0.6 =
-* Fixed widget title bug - you can now edit the title afterwards
-* When you deactivate, the widget is now auto removed from your sidebar
-
-= 1.0.5 =
-* Fixed link bug
-
-= 1.0.4 =
-* Allowed user to specify country only (specific place/city not mandatory)
-
-= 1.0.3 =
-* Fixed default value for text links bug
-* Fixed boolean settings update bug
-
-= 1.0.2 =
-* Check if schedule exists before displaying widget text
-* Localize terms from WP core language files
-* Ability to customise text in widget for terms not in WP core language files
-* Now suitable for WP in other languages
-
-= 1.0.1 =
-* Fixed jQuery conflict
-* Fixed Meetup heading pushing location box to next line
-* Fixed email validation error
-
-= 1.0.0 =
-* This is the first release version.
+= 1.1.2 =
+* Schedule intro is now in a <p> tag
+* Make sure spacing between intro and schedule is okay

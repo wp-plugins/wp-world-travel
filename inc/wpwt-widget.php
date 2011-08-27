@@ -1,11 +1,13 @@
 <div class="wpwt-widget">
 	<?php if( ! empty( $legs ) ) : ?>
-	<div id="wpwt-current-location">
+	<p id="wpwt-current-location">
 		<?php echo $settings['wpwt_introduction']; ?>&nbsp;<span class="wpwt-title"><?php echo $current_location ?></span>
-	</div>
+	</p>
+	<?php if ($settings['wpwt_hide_schedule'] == true): ?>
 	<ul>
 		<li><a id="wpwt-schedule-link" href="javascript:wpwt_schedule_toggle( '<?php echo $settings['wpwt_show_schedule_text']; ?>', '<?php echo $settings['wpwt_hide_schedule_text']; ?>' )"><?php echo $settings['wpwt_show_schedule_text']; ?></a></li>
 	</ul>
+	<?php endif ?>
 	<div id="wpwt-schedule" style="display:<?php echo $settings['wpwt_hide_schedule'] == true ? 'none' : 'block'; ?>">
 		<div id="wpwt-meetup">
 			<form method="post"	action="#">

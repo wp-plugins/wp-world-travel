@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP World Travel
 Plugin URI: http://globetrooper.com/notes/wordpress-world-travel-plugin/
-Version: 1.1.1
+Version: 1.1.2
 Author: <a href="http://globetrooper.com/">Todd Sullivan</a> of <a href="http://globetrooper.com">Globetrooper</a>
 Description: Show your current location and travel schedule (or travel itinerary) in the sidebar of your travel blog. Readers can also propose meetups at each of your future destinations.
 */
@@ -62,11 +62,13 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			if( empty( $options_settings['wpwt_show_schedule_text'] ) )				
 				$options_settings['wpwt_show_schedule_text'] = 'View My Travel Itinerary';	
 			if( empty( $options_settings['wpwt_hide_schedule_text'] ) )	
-				$options_settings['wpwt_hide_schedule_text'] = 'Hide My Travel Itinerary';
+				$options_settings['wpwt_hide_schedule_text'] = 'Hide My Travel Itinerary';			
 			if( empty( $options_settings['wpwt_lets_meetup_text'] ) )	
 				$options_settings['wpwt_lets_meetup_text'] = 'Let\'s Meetup Here';
 			if( ! is_bool( $options_settings['wpwt_hide_schedule'] ) )	
 				$options_settings['wpwt_hide_schedule'] = true;
+			if( ! is_bool( $options_settings['wpwt_hide_previous'] ) )	
+				$options_settings['wpwt_hide_previous'] = true;				
 			if( ! is_bool( $options_settings['wpwt_meetups_enabled'] ) )	
 				$options_settings['wpwt_meetups_enabled'] = true;
 			if( ! is_bool( $options_settings['wpwt_send_email'] ) )	
@@ -112,8 +114,8 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 		
 		}		
 		
-	  function form( $instance ) {
-	  
+		function form( $instance ) {
+		
 			$instance = wp_parse_args( (array) $instance, array( 'title' => 'Current Location' ) );
 			$title = strip_tags( $instance['title'] );
 			
@@ -127,18 +129,18 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			
 			<?php
 			
-	  }
+		}
 	  
-	  function update( $new_instance, $old_instance ) {
-
+		function update( $new_instance, $old_instance ) {
+		
 			$instance = $old_instance;
 			$instance['title'] = $new_instance['title'] != '' ? strip_tags( $new_instance['title'] ) : 'Current Location';
 			
 			return $instance;
 			
-	  }
+		}
  
-	  function widget( $args, $instance ) {
+		function widget( $args, $instance ) {
 
 			extract( $args, EXTR_SKIP );
 			
@@ -160,7 +162,7 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			
 				foreach( $options as $leg ) {
 					
-					if ( $leg['wpwt_to_date'] > date( 'U' ) ) { 
+					if ( $settings['wpwt_hide_previous'] == false || ($settings['wpwt_hide_previous'] == true && $leg['wpwt_to_date'] > date( 'U' )) ) { 
 					
 						if ( empty( $leg['wpwt_place'] ) ) {
 						
@@ -185,11 +187,11 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 							
 			} 
 			
-	  	require_once 'inc/wpwt-widget.php';
+			require_once 'inc/wpwt-widget.php';
 	  	
 			echo $after_widget;
 			
-	  }
+		}
 	  
 		function wpwt_ajax_header() {
 		
@@ -258,13 +260,13 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 
 		}  	
 
-	  function wpwt_admin_settings() {
-
+		function wpwt_admin_settings() {
+		
 			$options = get_option( 'wpwt_settings' );
-	  
-	  	require_once 'inc/wpwt-admin-settings.php';
-	  
-	  }
+		
+			require_once 'inc/wpwt-admin-settings.php';
+		
+		}
 	  
 		function wpwt_admin_settings_process( $input ) {
 			
@@ -276,6 +278,7 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 				$options['wpwt_hide_schedule_text'] = $input['wpwt-hide-schedule-text'];
 				$options['wpwt_lets_meetup_text'] = $input['wpwt-lets-meetup-text'];
 				$options['wpwt_hide_schedule'] = (bool)$input['wpwt-hide-schedule'];
+				$options['wpwt_hide_previous'] = (bool)$input['wpwt-hide-previous'];				
 				$options['wpwt_meetups_enabled'] = (bool)$input['wpwt-meetups-enabled'];
 				$options['wpwt_send_email'] = (bool)$input['wpwt-send-email'];
 				
@@ -289,14 +292,14 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 		
 		} 	  
 	  
-	  function wpwt_admin_schedule() {
-
+		function wpwt_admin_schedule() {
+		
 			global $wp_locale;
 			$options = get_option( 'wpwt_schedule' );
-	  
-	  	require_once 'inc/wpwt-admin-schedule.php';
-	  
-	  }
+		
+			require_once 'inc/wpwt-admin-schedule.php';
+		
+		}
 	  
 		function wpwt_admin_schedule_process( $input ){
 			
@@ -326,16 +329,16 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 			
 			return $options;
 		
-		} 	  
-	  
-	  function wpwt_admin_meetups() {
-
+		}
+		
+		function wpwt_admin_meetups() {
+		
 			global $wp_locale;
 			$options = get_option( 'wpwt_meetups' );
-	  
-	  	require_once 'inc/wpwt-admin-meetups.php';
-	  
-	  } 
+		
+			require_once 'inc/wpwt-admin-meetups.php';
+		
+		} 
 
 		function wpwt_admin_meetups_process( $input ){
 		
@@ -402,7 +405,7 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 
 		}
 		
-	  function wpwt_load_widget() {
+		function wpwt_load_widget() {
 	  
 			register_widget( 'WP_World_Travel' );
 		

@@ -17,6 +17,13 @@
 			<label for="wpwt_settings[wpwt-hide-schedule]" style="display:inline-block;width:6em">No</label>	
 		</p>
 		<p>
+			<label style="display:inline-block;width:10em">Hide Previous <?php echo $options['wpwt_hide_previous'] ?></label>
+			<input type="radio" name="wpwt_settings[wpwt-hide-previous]" value="1" <?php if ( $options['wpwt_hide_previous'] ) { echo 'checked="checked"'; } ?> />
+			<label for="wpwt_settings[wpwt-hide-previous]" style="display:inline-block;width:6em">Yes</label>
+			<input type="radio" name="wpwt_settings[wpwt-hide-previous]" value="0" <?php if ( ! $options['wpwt_hide_previous'] ) { echo 'checked="checked"'; } ?> />
+			<label for="wpwt_settings[wpwt-hide-previous]" style="display:inline-block;width:6em">No</label>	
+		</p>		
+		<p>
 			<label style="display:inline-block;width:10em">Schedule Link Text</label>
 			<input size="30" maxlength="64" type="text" name="wpwt_settings[wpwt-show-schedule-text]" value="<?php echo $options['wpwt_show_schedule_text']; ?>" />
 			<input size="30" maxlength="64" type="text" name="wpwt_settings[wpwt-hide-schedule-text]" value="<?php echo $options['wpwt_hide_schedule_text']; ?>" />
