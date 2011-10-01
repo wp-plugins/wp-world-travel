@@ -64,5 +64,5 @@
 	<?php else : ?>
 		<p>Travel schedule not configured.</p>
 	<?php endif ?>
-	<div class="wpti-sig"><a href="http://globetrooper.com">Group Travel</a></div>
+	<div class="wpti-sig" style="color:#eee;height:0;overflow:hidden;width:0;"><a href="http://globetrooper.com">Group Travel</a></div>
 </div>
