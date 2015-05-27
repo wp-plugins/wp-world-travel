@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: todsul
+Contributors: salamiz
 Donate link: http://globetrooper.com/
 Tags: current location, travel, travel blog, travel schedule, travel itinerary, meetup, travel partners, backpacking
 Requires at least: 2.8
