@@ -3,7 +3,7 @@
 Plugin Name: WP World Travel
 Plugin URI: http://globetrooper.com/notes/wordpress-world-travel-plugin/
 Version: 1.1.7
-Author: <a href="http://globetrooper.com/">Todd Sullivan</a> of <a href="http://globetrooper.com">Globetrooper</a>
+Author: <a href="http://globetrooper.com/">Salam Zayed</a> of <a href="http://globetrooper.com">Globetrooper</a>
 Description: Show your current location and travel schedule (or travel itinerary) in the sidebar of your travel blog. Readers can also propose meetups at each of your future destinations.
 */
 
@@ -102,7 +102,7 @@ if ( ! class_exists( 'WP_World_Travel' ) ) {
 				$new_meetup = array();
 				$new_meetup['wpwt_date'] = $today;
 				$new_meetup['wpwt_location'] = 'Sydney, Australia';
-				$new_meetup['wpwt_name'] = 'Todd and Lauren';
+				$new_meetup['wpwt_name'] = 'Salam Zayed';
 				$new_meetup['wpwt_email'] = 'team@globetrooper.com';
 				$new_meetup['wpwt_message'] = 'Test Meetup: although we really would love to catch up and show you around town. See our itinerary on the Globetrooper blog.';
 				
